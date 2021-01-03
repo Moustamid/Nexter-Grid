@@ -31,5 +31,33 @@ html {
 
 body {
   font-family: $font-primary;
-  color: $color-primary;
+  color: $color-grey-dark-2;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+// Grid system :
+
+.container {
+  display: grid;
+  // Grid layout :
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  /* NOTE: 1 8rem sidbar , and 8 columns layout with a fix width , row = 1140 / 8 columns ~ 14rem .
+     and 2 fr columns to center the 8 cols */
+
+  grid-template-columns:
+    [sidebar-start] 8rem
+    [sidebar-end full-start]
+    minmax(6rem, 1fr)
+    [center-start]
+    repeat(8, [col-start] minmax(min-content, 14rem) [col-end])
+    [center-end]
+    minmax(6rem, 1fr)
+    [full-end];
+
+  // TODO: To DELETE :
+  & > * {
+    padding: 40px;
+    font-size: 3rem;
+  }
 }
