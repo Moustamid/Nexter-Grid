@@ -1,4 +1,35 @@
 .features {
-  background-color: $color-grey-light-2;
+  margin: 15rem 0;
   grid-column: center-start / center-end;
+
+  // grid system for the features section :
+  display: grid;
+  // HACK:
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+
+  grid-gap: 6rem;
+  // NOTE: align-items controles the  alignment inside the feature Grid !
+  align-items: start;
+}
+
+// NOTE: the feature is an independent component :
+.feature {
+  // grid system for the feature section:
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary;
+    width: 4.5rem;
+    height: 4.5rem;
+    // Grid item :
+    grid-row: 1 / span 2;
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+  }
 }
